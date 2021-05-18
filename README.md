@@ -6,7 +6,13 @@
 - Dependiendo del número de hilos
 - Unicast vs multicast
 
-## Obtener métricas del código paralelizado
+## Obtener métricas del código paralelizado (OpenMP)
+- Dependiendo del rango de n
+- Dependiendo del número de procesos
+- Dependiendo del número de hilos
+- Unicast vs multicast
+
+## Obtener métricas del código paralelizado (MPI)
 - Dependiendo del rango de n
 - Dependiendo del número de procesos
 - Dependiendo del número de hilos
