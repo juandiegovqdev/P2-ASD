@@ -1,11 +1,3 @@
-//----------------------------------------------------
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//  Dpto ATC. www.atc.us.es 
-//  version 1. Nov. 2018. Fernando Diaz del Rio
-//  - FOURIER  parallelizing scientific programs with OpenMP/MPI
-//  */
-//-----------------------------------------------------
-
 using namespace std;
 
 #include <iostream>
@@ -37,8 +29,7 @@ ElementType temp_matrix[MAX_RANGE][MAX_RANGE];
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // matrixes and vectors  init
-void matrix_vector_init(int current_range)
-{
+void matrix_vector_init(int current_range) {
 	for (int row = 0; row < current_range; row++) {
 		for (int col = 0; col < current_range; col++) {
 			temp_matrix[row][col] = 0; // @ rand() / RAND_MAX * T_MAX;
@@ -91,16 +82,14 @@ int main(int argc, char** argv) {
 	double par_initial_time, par_elapsed_time, par_minimum_time = 1e+36;
 	double seq_initial_time, seq_elapsed_time, seq_minimum_time = 1e+36;
 
-	for (int range = MIN_RANGE; range <= MAX_RANGE; range = range * 2)
-	{
+	for (int range = MIN_RANGE; range <= MAX_RANGE; range = range * 2) {
 		// measuring tests
 		par_minimum_time = 1e+36;
 		seq_minimum_time = 1e+36;
 
 		// FIRST EXECUTING THE SEQUENTIAL VERSION TO GET THE CORRECT RESULTS AND THE SEQ TIMING 
 		//------------------------------------------------
-		for (int i = 0; i<N_REPETITIONS; i++)
-		{
+		for (int i = 0; i<N_REPETITIONS; i++) {
 			matrix_vector_init(range);
 
 			seq_initial_time = omp_get_wtime();
@@ -121,8 +110,7 @@ int main(int argc, char** argv) {
 
 		// SECOND EXECUTING THE PARALLEL VERSION AND ITS PAR TIMING 
 		//------------------------------------------------
-		for (int i = 0; i<N_REPETITIONS; i++)
-		{
+		for (int i = 0; i<N_REPETITIONS; i++) {
 			matrix_vector_init(range);
 
 			par_initial_time = omp_get_wtime();
