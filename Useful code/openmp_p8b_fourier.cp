@@ -65,6 +65,7 @@ void seq_fourier(ElementType temp[MAX_RANGE][MAX_RANGE], int current_range, int 
 	}
 
 }
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ElementType  accumulative_diff_2rows(ElementType temp[MAX_RANGE][MAX_RANGE], int current_range) {
 	int row;
@@ -75,7 +76,7 @@ ElementType  accumulative_diff_2rows(ElementType temp[MAX_RANGE][MAX_RANGE], int
 	}
 	return acum;
 }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int main(int argc, char** argv) {
 
@@ -133,7 +134,6 @@ int main(int argc, char** argv) {
 		printf("- Size: %d . PAR Minimum seconds: %.6lf\n", range, par_minimum_time);
 		printf("- Total quadratic difference between the SEQ and PAR version: %.12lf\n",
 			sqrt((seq_value - par_value)*(seq_value - par_value)));
-
 
 	} //end of  'range' loop
 }
