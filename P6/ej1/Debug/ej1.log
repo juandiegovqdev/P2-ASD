@@ -1,5 +1,2 @@
 ﻿  principal_ej1.cpp
-C:\Users\enriq\P2-ASD\P6\ej1\principal_ej1.cpp(47,17): warning C4101: 'iter': variable local sin referencia
-C:\Users\enriq\P2-ASD\P6\ej1\principal_ej1.cpp(47,7): warning C4101: 'row': variable local sin referencia
-C:\Users\enriq\P2-ASD\P6\ej1\principal_ej1.cpp(47,12): warning C4101: 'col': variable local sin referencia
-  ej1.vcxproj -> C:\Users\enriq\P2-ASD\P6\Debug\ej1.exe
+  ej1.vcxproj -> C:\Users\Usuario\Documents\GitHub\P2-ASD\P6\Debug\ej1.exe

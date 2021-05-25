@@ -14,14 +14,14 @@ using namespace std;
 // repeat several times each test to extract the minimum time
 // and to have the caches filled
 
-#define  MAX_RANGE (16)
-#define  MIN_RANGE (4)
+#define  MAX_RANGE (3200)
+#define  MIN_RANGE (800)
 //big numbers to have a mean time (but not vey big to avoid cache misses) 
 
 #define  T_MAX (100)
 #define  T_MIN (0)
 
-#define  N_ITERATIONS (3)
+#define  N_ITERATIONS (300)
 
 typedef double  ElementType;
 
@@ -41,16 +41,31 @@ void matrix_vector_init(int current_range) {
 	}
 }
 
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// pointers must be aligned to frontier of 16 (or 32) bytes
-void  par_fourier(ElementType temp[MAX_RANGE][MAX_RANGE], int current_range, int n_iter) {
-		int row, col, iter;
+void  par_fourier_openmp(ElementType temp[MAX_RANGE][MAX_RANGE], int current_range, int n_iter) {
+	int row, col, iter;
 
+	// Set your own number of threads.
+	omp_set_num_threads(12);
 
-		//@  STUDENTS MUST WRITE HERE THE PARALLEL VERSION 
-		//@  STUDENTS MUST WRITE HERE THE PARALLEL VERSION 
-		//@  STUDENTS MUST WRITE HERE THE PARALLEL VERSION 
+#pragma omp for
+		for (iter = 0; iter < n_iter; iter++) {
+			for (row = 0; row < current_range; row++) {
+				for (col = 1; col < current_range - 1; col++) {
+					temp[row][col] = 0.5 * (temp[row][col - 1] + temp[row][col + 1]);
+				}
+			}
+		}
+}
 
+void  par_fourier_mpi(ElementType temp[MAX_RANGE][MAX_RANGE], int current_range, int n_iter) {
+	int row, col, iter;
+	for (iter = 0; iter < n_iter; iter++) {
+		for (row = 0; row < current_range; row++) {
+			for (col = 1; col < current_range - 1; col++) {
+				temp[row][col] = 0.5 * (temp[row][col - 1] + temp[row][col + 1]);
+			}
+		}
+	}
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -63,7 +78,6 @@ void seq_fourier(ElementType temp[MAX_RANGE][MAX_RANGE], int current_range, int 
 			}
 		}
 	}
-
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ElementType  accumulative_diff_2rows(ElementType temp[MAX_RANGE][MAX_RANGE], int current_range) {
@@ -118,7 +132,8 @@ int main(int argc, char** argv) {
 			// the problem is that the frequency is usually variable in current CPUs
 			//------------------------------------------------
 
-			par_fourier(temp_matrix, range, N_ITERATIONS); // Do the test
+		    par_fourier_openmp(temp_matrix, range, N_ITERATIONS); // Do the test
+			// par_fourier_mpi(temp_matrix, range, N_ITERATIONS); // Do the test
 			
 			//------------------------------------------------
 			par_elapsed_time = omp_get_wtime() - par_initial_time;
@@ -133,7 +148,6 @@ int main(int argc, char** argv) {
 		printf("- Size: %d . PAR Minimum seconds: %.6lf\n", range, par_minimum_time);
 		printf("- Total quadratic difference between the SEQ and PAR version: %.12lf\n",
 			sqrt((seq_value - par_value)*(seq_value - par_value)));
-
 
 	} //end of  'range' loop
 }
