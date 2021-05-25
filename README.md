@@ -1,22 +1,67 @@
 # P2-ASD
 
 ## Obtener métricas del código (sin paralelizar)
-- Dependiendo del rango de n
-- Dependiendo del número de procesos
-- Dependiendo del número de hilos
-- Unicast vs multicast
+1) Dependiendo del rango de n
+    - Enrique:
+    - Juan Diego:
+    - Máquina Virtual:
+    
+2) Dependiendo del número de procesos
+    - Enrique:
+    - Juan Diego:
+    - Máquina Virtual:
+    
+3) Dependiendo del número de hilos
+    - Enrique:
+    - Juan Diego:
+    - Máquina Virtual:
+    
+4) Unicast vs multicast
+    - Enrique:
+    - Juan Diego:
+    - Máquina Virtual:
 
 ## Obtener métricas del código paralelizado (OpenMP)
-- Dependiendo del rango de n
-- Dependiendo del número de procesos
-- Dependiendo del número de hilos
-- Unicast vs multicast
+1) Dependiendo del rango de n
+    - Enrique:
+    - Juan Diego:
+    - Máquina Virtual:
+
+2) Dependiendo del número de procesos
+    - Enrique:
+    - Juan Diego:
+    - Máquina Virtual:
+
+3) Dependiendo del número de hilos
+    - Enrique:
+    - Juan Diego:
+    - Máquina Virtual:
+
+4) Unicast vs multicast
+    - Enrique:
+    - Juan Diego:
+    - Máquina Virtual:
 
 ## Obtener métricas del código paralelizado (MPI)
-- Dependiendo del rango de n
-- Dependiendo del número de procesos
-- Dependiendo del número de hilos
-- Unicast vs multicast
+1) Dependiendo del rango de n
+    - Enrique:
+    - Juan Diego:
+    - Máquina Virtual:
+
+2) Dependiendo del número de procesos
+    - Enrique:
+    - Juan Diego:
+    - Máquina Virtual:
+
+3) Dependiendo del número de hilos
+    - Enrique:
+    - Juan Diego:
+    - Máquina Virtual:
+
+4) Unicast vs multicast
+    - Enrique:
+    - Juan Diego:
+    - Máquina Virtual:
 
 **NOTA**: Obtener métricas usando Windows y mpicxx
 
