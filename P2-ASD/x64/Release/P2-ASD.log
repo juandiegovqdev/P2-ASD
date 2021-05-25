@@ -1,0 +1,12 @@
+﻿cl : línea de comandos warning D9025: invalidando '/sdl' con '/GS-'
+  main.cpp
+C:\Users\enriq\P2-ASD\P2-ASD\main.cpp(114,16): warning C4101: 'iter': variable local sin referencia
+C:\Users\enriq\P2-ASD\P2-ASD\main.cpp(114,6): warning C4101: 'row': variable local sin referencia
+C:\Users\enriq\P2-ASD\P2-ASD\main.cpp(114,11): warning C4101: 'col': variable local sin referencia
+  Generando código
+  Not all modules are compiled with -Gy (function comdat), build without incremental LTCG.
+  Generación de código finalizada
+  P2-ASD.vcxproj -> C:\Users\enriq\P2-ASD\P2-ASD\x64\Release\P2-ASD.exe
+  Copia las DLLs necesarias de OpenCV
+          1 archivo(s) copiado(s).
+          1 archivo(s) copiado(s).
