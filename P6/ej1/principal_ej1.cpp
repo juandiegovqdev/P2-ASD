@@ -14,8 +14,8 @@ using namespace std;
 // repeat several times each test to extract the minimum time
 // and to have the caches filled
 
-#define  MAX_RANGE (3200)
-#define  MIN_RANGE (800)
+#define  MAX_RANGE (1600)
+#define  MIN_RANGE (400)
 //big numbers to have a mean time (but not vey big to avoid cache misses) 
 
 #define  T_MAX (100)
@@ -47,7 +47,7 @@ void  par_fourier_openmp(ElementType temp[MAX_RANGE][MAX_RANGE], int current_ran
 	// Set your own number of threads.
 	omp_set_num_threads(12);
 
-#pragma omp for
+#pragma omp parallel for default(none) shared(n_iter,current_range, temp) private(iter,row,col)
 		for (iter = 0; iter < n_iter; iter++) {
 			for (row = 0; row < current_range; row++) {
 				for (col = 1; col < current_range - 1; col++) {
